@@ -1,4 +1,5 @@
 ﻿using ControleDeCinema.Dominio.ModuloFilme;
+using ControleDeCinema.Dominio.ModuloFuncionario;
 using ControleDeCinema.Dominio.ModuloSala;
 
 namespace ControleDeCinema.Infra.Orm.Compartilhado;
@@ -7,6 +8,7 @@ public class ControleDeCinemaDbContext : DbContext
 {
     public DbSet<Filme> Filmes { get; set; }
     public DbSet<Sala> Salas { get; set; }
+    public DbSet<Funcionario> Funcionarios{ get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -69,6 +71,31 @@ public class ControleDeCinemaDbContext : DbContext
             salaBuilder.Property(s => s.Capacidade)
                 .IsRequired()
                 .HasColumnType("int");
+        });
+
+        base.OnModelCreating(modelBuilder);
+    }
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Funcionario>(funcionarioBuilder =>
+        {
+            funcionarioBuilder.ToTable("TbFuncionario");
+
+            funcionarioBuilder.Property(s => s.Id)
+                .IsRequired()
+                .ValueGenerateOnAdd();
+
+            funcionarioBuilder.Property(s => s.Nome)
+                .IsRequired()
+                .HasColumnType("varchar(200)");
+
+            funcionarioBuilder.Property(s => s.Login)
+                .IsRequired()
+                .HasColumnType("varchar(200)");
+
+            funcionarioBuilder.Property(s => s.Senha)
+                .IsRequired()
+                .HasColumnType("varchar(200)");
         });
 
         base.OnModelCreating(modelBuilder);
