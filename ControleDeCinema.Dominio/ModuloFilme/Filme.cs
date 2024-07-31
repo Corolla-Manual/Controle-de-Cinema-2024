@@ -7,13 +7,15 @@ namespace ControleDeCinema.Dominio.ModuloFilme
         public string Titulo { get; set; }
         public DateTime Duracao { get; set; }
         public string Genero { get; set; }
+        public bool Estreia { get; set; }
         //public List<Sessao> Sessao { get; set; }
 
-        public Filme(string titulo, DateTime duracao, string genero)
+        public Filme(string titulo, DateTime duracao, string genero, bool estreia)
         {
             Titulo = titulo;
             Duracao = duracao;
             Genero = genero;
+            Estreia = estreia;
 
             //Sessao = new List<Sessao>();
         }
@@ -25,6 +27,7 @@ namespace ControleDeCinema.Dominio.ModuloFilme
             Titulo = filmeAtualizado.Titulo;
             Duracao = filmeAtualizado.Duracao;
             Genero = filmeAtualizado.Genero;
+            Estreia = filmeAtualizado.Estreia;
         }
 
         public override List<string> Validar()

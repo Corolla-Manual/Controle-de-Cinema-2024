@@ -1,13 +1,12 @@
 ﻿using ControleDeCinema.Dominio.ModuloFilme;
-using static System.Net.Mime.MediaTypeNames;
-using System.Reflection.Emit;
-using System.Collections.Generic;
+using ControleDeCinema.Dominio.ModuloSala;
 
 namespace ControleDeCinema.Infra.Orm.Compartilhado;
 
 public class ControleDeCinemaDbContext : DbContext
 {
     public DbSet<Filme> Filmes { get; set; }
+    public DbSet<Sala> Salas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
     {
@@ -22,6 +21,7 @@ public class ControleDeCinemaDbContext : DbContext
 
         base.OnConfiguring(optionsBuilder);
     }
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         modelBuilder.Entity<Filme>(filmeBuilder =>
@@ -44,6 +44,31 @@ public class ControleDeCinemaDbContext : DbContext
                 .IsRequired()
                 .HasColumnType("varchar(100)");
 
+            filmeBuilder.Property(f => f.Estreia)
+                .IsRequired()
+                .HasColumnType("bit");
+        });
+
+        base.OnModelCreating(modelBuilder);
+    }
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
+    {
+        modelBuilder.Entity<Sala>(salaBuilder =>
+        {
+            salaBuilder.ToTable("TbSala");
+
+            salaBuilder.Property(s => s.Id)
+                .IsRequired()
+                .ValueGenerateOnAdd();
+
+            salaBuilder.Property(s => s.Numero)
+                .IsRequired()
+                .HasColumnType("int");
+
+            salaBuilder.Property(s => s.Capacidade)
+                .IsRequired()
+                .HasColumnType("int");
         });
 
         base.OnModelCreating(modelBuilder);
