@@ -14,9 +14,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.1 Unidade", "4.1 Unidade", "{FFDF98B1-DD90-48EA-93C2-EF098CFCFF1F}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "4.2 Integração", "4.2 Integração", "{FC1DC994-1B37-4BF5-9F9D-4B753DF78C5F}"
-	ProjectSection(SolutionItems) = preProject
-		appsettings.json = appsettings.json
-	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleDeCinema.Testes.Unidade", "ControleDeCinema.Testes.Unidade\ControleDeCinema.Testes.Unidade.csproj", "{F0CEF772-C964-44CE-BAF0-AA8690A3B29F}"
 EndProject
