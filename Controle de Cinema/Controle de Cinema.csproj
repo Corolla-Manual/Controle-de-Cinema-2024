@@ -14,4 +14,9 @@
     </PackageReference>
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\ControleDeCinema.Dominio\ControleDeCinema.Dominio.csproj" />
+    <ProjectReference Include="..\ControleDeCinema.Infra.Orm\ControleDeCinema.Infra.Orm.csproj" />
+  </ItemGroup>
+
 </Project>

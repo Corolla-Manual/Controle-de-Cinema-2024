@@ -14,6 +14,10 @@ namespace ControleDeCinema.Dominio.ModuloSessao
 		public StatusSessaoEnum Status { get; set; }
 		public List<Ingresso> Ingressos { get; set; }
 
+		public Sessao()
+		{
+
+		}
 		public Sessao(Filme filme, Sala sala, DateTime horario, StatusSessaoEnum status)
 		{
 			Filme = filme;

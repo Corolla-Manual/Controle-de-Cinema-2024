@@ -135,8 +135,8 @@ public class ControleDeCinemaDbContext : DbContext
 				.HasColumnType("real");
 
 			ingressoBuilder.HasOne(i => i.Funcionario)
-				.WithOne()
-				.HasForeignKey("Funcionario_Id")
+				.WithMany()
+				.HasConstraintName("Funcionario_Id")
 				.HasConstraintName("FK_TbIngresso_TbFuncionario")
 				.OnDelete(DeleteBehavior.Restrict);
 

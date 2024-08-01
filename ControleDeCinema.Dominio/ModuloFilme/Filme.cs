@@ -11,6 +11,10 @@ namespace ControleDeCinema.Dominio.ModuloFilme
 		public bool Estreia { get; set; }
 		public List<Sessao> Sessoes { get; set; }
 
+		public Filme()
+		{
+
+		}
 		public Filme(string titulo, DateTime duracao, string genero, bool estreia)
 		{
 			Titulo = titulo;

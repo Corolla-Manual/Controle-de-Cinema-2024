@@ -4,45 +4,49 @@ namespace ControleDeCinema.Dominio.ModuloFuncionario;
 
 public class Funcionario : EntidadeBase
 {
-    public string Nome { get; set; }
-    public string Login { get; set; }
-    public string Senha { get; set; }
+	public string Nome { get; set; }
+	public string Login { get; set; }
+	public string Senha { get; set; }
 
-    public Funcionario(string nome, string login, string senha)
-    {
-        Nome = nome;
-        Login = login;
-        Senha = senha;
-    } 
+	public Funcionario()
+	{
 
-    public override void AtualizarInformacoes(EntidadeBase registroAtualizado)
-    {
-        Funcionario funcionarioAtualizado = (Funcionario)registroAtualizado;
+	}
+	public Funcionario(string nome, string login, string senha)
+	{
+		Nome = nome;
+		Login = login;
+		Senha = senha;
+	}
 
-        Nome = funcionarioAtualizado.Nome;
-        Login = funcionarioAtualizado.Login;
-        Senha = funcionarioAtualizado.Senha;
-    }
+	public override void AtualizarInformacoes(EntidadeBase registroAtualizado)
+	{
+		Funcionario funcionarioAtualizado = (Funcionario)registroAtualizado;
 
-    public override List<string> Validar()
-    {
-        List<string> erros = new List<string>();
+		Nome = funcionarioAtualizado.Nome;
+		Login = funcionarioAtualizado.Login;
+		Senha = funcionarioAtualizado.Senha;
+	}
 
-        if (string.IsNullOrEmpty(Nome.Trim()))
-            erros.Add("O campo \"Nome\" é obrigatório!");
+	public override List<string> Validar()
+	{
+		List<string> erros = new List<string>();
 
-        if (string.IsNullOrEmpty(Login.Trim()))
-            erros.Add("O campo \"Login\" é obrigatório!");
+		if (string.IsNullOrEmpty(Nome.Trim()))
+			erros.Add("O campo \"Nome\" é obrigatório!");
 
-        if (string.IsNullOrEmpty(Senha.Trim()))
-            erros.Add("O campo \"Senha\" é obrigatório!");
+		if (string.IsNullOrEmpty(Login.Trim()))
+			erros.Add("O campo \"Login\" é obrigatório!");
 
-        return erros;
-    }
+		if (string.IsNullOrEmpty(Senha.Trim()))
+			erros.Add("O campo \"Senha\" é obrigatório!");
 
-    public override string ToString()
-    {
-        return Nome;
-    }
+		return erros;
+	}
+
+	public override string ToString()
+	{
+		return Nome;
+	}
 }
 

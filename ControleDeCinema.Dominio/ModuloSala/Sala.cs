@@ -9,6 +9,10 @@ public class Sala : EntidadeBase
 	public int Capacidade { get; set; }
 	public List<Sessao> Sessoes { get; set; }
 
+	public Sala()
+	{
+
+	}
 	public Sala(int numero, int capacidade)
 	{
 		Numero = numero;

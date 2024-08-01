@@ -11,6 +11,10 @@ namespace ControleDeCinema.Dominio.ModuloSessao.ModuloIngresso
 		public double Valor { get; set; }
 		public Funcionario Funcionario { get; set; }
 
+		public Ingresso()
+		{
+
+		}
 		public Ingresso(int numeroPoltrona, TipoEntradaEnum tipo, Sessao sessao, double valor, Funcionario funcionario)
 		{
 			NumeroPoltrona = numeroPoltrona;
