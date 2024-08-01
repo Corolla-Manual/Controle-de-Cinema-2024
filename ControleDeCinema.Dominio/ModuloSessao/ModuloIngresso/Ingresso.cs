@@ -1,4 +1,5 @@
 ﻿using ControleDeCinema.Dominio.Compartilhado;
+using ControleDeCinema.Dominio.ModuloFuncionario;
 
 namespace ControleDeCinema.Dominio.ModuloSessao.ModuloIngresso
 {
@@ -8,14 +9,15 @@ namespace ControleDeCinema.Dominio.ModuloSessao.ModuloIngresso
 		public TipoEntradaEnum Tipo { get; set; }
 		public Sessao Sessao { get; set; }
 		public double Valor { get; set; }
-		//public Funcionario Funcionario { get; set; }
+		public Funcionario Funcionario { get; set; }
 
-		public Ingresso(int numeroPoltrona, TipoEntradaEnum tipo, Sessao sessao, double valor)
+		public Ingresso(int numeroPoltrona, TipoEntradaEnum tipo, Sessao sessao, double valor, Funcionario funcionario)
 		{
 			NumeroPoltrona = numeroPoltrona;
 			Tipo = tipo;
 			Sessao = sessao;
 			Valor = valor;
+			Funcionario = funcionario;
 		}
 
 		public override void AtualizarInformacoes(EntidadeBase registroAtualizado)
@@ -25,6 +27,7 @@ namespace ControleDeCinema.Dominio.ModuloSessao.ModuloIngresso
 			Tipo = ingre.Tipo;
 			Sessao = ingre.Sessao;
 			Valor = ingre.Valor;
+			Funcionario = ingre.Funcionario;
 		}
 
 		public override List<string> Validar()

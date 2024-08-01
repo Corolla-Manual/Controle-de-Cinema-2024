@@ -14,7 +14,7 @@ public class ControleDeCinemaDbContext : DbContext
 	public DbSet<Sala> Salas { get; set; }
 	public DbSet<Sessao> Sessoes { get; set; }
 	public DbSet<Ingresso> Ingressos { get; set; }
-    public DbSet<Funcionario> Funcionarios{ get; set; }
+	public DbSet<Funcionario> Funcionarios { get; set; }
 
 	protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 	{
@@ -134,15 +134,22 @@ public class ControleDeCinemaDbContext : DbContext
 				.IsRequired()
 				.HasColumnType("real");
 
-			
+			ingressoBuilder.HasOne(i => i.Funcionario)
+				.WithOne()
+				.HasForeignKey("Funcionario_Id")
+				.HasConstraintName("FK_TbIngresso_TbFuncionario")
+				.OnDelete(DeleteBehavior.Restrict);
+
 		});
+
+		//Funcionario
 		modelBuilder.Entity<Funcionario>(funcionarioBuilder =>
 		{
 			funcionarioBuilder.ToTable("TbFuncionario");
 
 			funcionarioBuilder.Property(s => s.Id)
 				.IsRequired()
-				.ValueGenerateOnAdd();
+				.ValueGeneratedOnAdd();
 
 			funcionarioBuilder.Property(s => s.Nome)
 				.IsRequired()
