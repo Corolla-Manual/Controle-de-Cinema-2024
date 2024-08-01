@@ -47,7 +47,7 @@ public class ControleDeCinemaDbContext : DbContext
 
 			filmeBuilder.Property(f => f.Duracao)
 				.IsRequired()
-				.HasColumnType("datetime2");
+				.HasColumnType("int");
 
 			filmeBuilder.Property(f => f.Genero)
 				.IsRequired()
