@@ -1,0 +1,37 @@
+﻿@model DetalhesSalaViewModel
+
+@{
+	Layout = "_Layout";
+	ViewBag.Title = "Detalhes da Sala";
+}
+
+<div class="row">
+	<div class="col-lg-6 d-grid gap-2 d-md-block">
+        
+		<div class="d-grid">
+			<label class="fs-5"><strong>Sala:</strong> @Model.Numero</label>
+
+			<label><strong>Id:</strong> [@Model.Id]</label>
+			<label><strong>Capacidade:</strong> @Model.Capacidade</label>
+		</div>
+
+		@if (Model.Sessoes.Any())
+		{
+			<div class="mt-3">
+				<h5>Sessoes relacionadas à sala:</h5>
+
+				<ul>
+					@foreach (var sessao in Model.Sessoes)
+					{
+						<li>@sessao.DataHorario</li>
+					}
+				</ul>
+			</div>
+		}
+
+		<a href="/sala/listar" class="btn btn-secondary px-5 mt-4">
+			<i class="bi bi-arrow-return-left me-1"></i>
+			Voltar
+		</a>
+	</div>
+</div>
