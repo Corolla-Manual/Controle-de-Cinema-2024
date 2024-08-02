@@ -6,7 +6,7 @@ namespace ControleDeCinema.Dominio.ModuloFilme
 	public class Filme : EntidadeBase
 	{
 		public string Titulo { get; set; }
-		public DateTime Duracao { get; set; }
+		public int Duracao { get; set; }
 		public string Genero { get; set; }
 		public bool Estreia { get; set; }
 		public List<Sessao> Sessoes { get; set; }
@@ -15,7 +15,7 @@ namespace ControleDeCinema.Dominio.ModuloFilme
 		{
 
 		}
-		public Filme(string titulo, DateTime duracao, string genero, bool estreia)
+		public Filme(string titulo, int duracao, string genero, bool estreia)
 		{
 			Titulo = titulo;
 			Duracao = duracao;

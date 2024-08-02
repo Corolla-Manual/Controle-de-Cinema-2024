@@ -23,7 +23,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleDeCinema.Dominio", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleDeCinema.Infra.Orm", "ControleDeCinema.Infra.Orm\ControleDeCinema.Infra.Orm.csproj", "{18D0A903-6B6C-493D-88D0-F2E6E52E0B1D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControleDeCinemaMVC", "ControleDeCinemaMVC\ControleDeCinemaMVC.csproj", "{592A482C-5021-49FE-9BDA-799AEBC2ADE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ControleDeCinemaMVC", "ControleDeCinemaMVC\ControleDeCinemaMVC.csproj", "{592A482C-5021-49FE-9BDA-799AEBC2ADE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

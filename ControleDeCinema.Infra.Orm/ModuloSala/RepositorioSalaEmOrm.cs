@@ -1,58 +1,59 @@
 ﻿using ControleDeCinema.Dominio.ModuloSala;
 using ControleDeCinema.Infra.Orm.Compartilhado;
+using Microsoft.EntityFrameworkCore;
 
 namespace ControleDeCinema.Infra.Orm.ModuloSala;
 
 public class RepositorioSalaEmOrm : IRepositorioSala
 {
-    private ControleDeCinemaDbContext dbContext;
+	private ControleDeCinemaDbContext dbContext;
 
-    public RepositorioSalaEmOrm(ControleDeCinemaDbContext dbContext)
-    {
-        this.dbContext = dbContext;
-    }
+	public RepositorioSalaEmOrm(ControleDeCinemaDbContext dbContext)
+	{
+		this.dbContext = dbContext;
+	}
 
-    public void Inserir(Sala registro)
-    {
-        dbContext.Salas.Add(registro);
+	public void Inserir(Sala registro)
+	{
+		dbContext.Salas.Add(registro);
 
-        dbContext.SaveChanges();
-    }
+		dbContext.SaveChanges();
+	}
 
-    public bool Editar(Sala registroOriginal, Sala registroAtualizado)
-    {
-        if (registroOriginal == null || registroAtualizado == null)
-            return false;
+	public bool Editar(Sala registroOriginal, Sala registroAtualizado)
+	{
+		if (registroOriginal == null || registroAtualizado == null)
+			return false;
 
-        registroOriginal.AtualizarInformacoes(registroAtualizado);
+		registroOriginal.AtualizarInformacoes(registroAtualizado);
 
-        dbContext.Salas.Update(registroOriginal);
+		dbContext.Salas.Update(registroOriginal);
 
-        dbContext.SaveChanges();
+		dbContext.SaveChanges();
 
-        return true;
-    }
+		return true;
+	}
 
-    public bool Excluir(Sala registro)
-    {
-        if (registro == null)
-            return false;
+	public bool Excluir(Sala registro)
+	{
+		if (registro == null)
+			return false;
 
-        dbContext.Salas.Remove(registro);
+		dbContext.Salas.Remove(registro);
 
-        dbContext.SaveChanges();
+		dbContext.SaveChanges();
 
-        return true;
-    }
+		return true;
+	}
 
-    public Sala SelecionarPorId(int id)
-    {
-        return dbContext.Salas.Find(id)!;
-    }
+	public Sala SelecionarPorId(int id)
+	{
+		return dbContext.Salas.Include(s => s.Sessoes).FirstOrDefault(s => s.Id == id)!;
+	}
 
-    public List<Sala> SelecionarTodos()
-    {
-        return dbContext.Salas.ToList();
-    }
+	public List<Sala> SelecionarTodos()
+	{
+		return dbContext.Salas.ToList();
+	}
 }
 
