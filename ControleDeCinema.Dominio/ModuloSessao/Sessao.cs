@@ -43,10 +43,12 @@ namespace ControleDeCinema.Dominio.ModuloSessao
 		{
 			List<string> erros = new List<string>();
 
-			if (Filme == null)
+			if (Filme.Titulo == null)
 				erros.Add("O campo \"Filme\" é obrigatório");
-			if (Sala == null)
+
+			if (Sala.Numero <= 0)
 				erros.Add("O campo \"Sala\" é obrigatório");
+
 			if (Horario == DateTime.MinValue)
 				erros.Add("O campo \"Horario\" é obrigatório");
 
