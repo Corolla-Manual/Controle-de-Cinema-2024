@@ -42,7 +42,7 @@ O sistema deve apresentar os detalhes das sessões, mostrando as poltronas dispo
 
 **Ambiente**
 
-● A aplicação poderá ser acessada a partir de um navegador de internet (browser)
+● A aplicação poderá ser acessada a partir de um navegador de internet (browser).
 
 **Persistência das informações**
 
@@ -50,13 +50,13 @@ O sistema deve apresentar os detalhes das sessões, mostrando as poltronas dispo
 
 **Arquitetural**
 
-● Deve-se trabalhar utilizando o modelo de camadas
+● Deve-se trabalhar utilizando o modelo de camadas.
 
 **Qualidade**
 
-● Deve-se criar testes automatizados para os componentes da aplicação
+● Deve-se criar testes automatizados para os componentes da aplicação.
 
-● Deve-se criar a documentação do projeto, prototipos, diagramas e README
+● Deve-se criar a documentação do projeto, prototipos, diagramas e README.
 
 ## Requisitos
 
