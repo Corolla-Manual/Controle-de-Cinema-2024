@@ -1,57 +1,58 @@
 ﻿using ControleDeCinema.Dominio.ModuloFilme;
 using ControleDeCinema.Infra.Orm.Compartilhado;
+using Microsoft.EntityFrameworkCore;
 
 namespace ControleDeCinema.Infra.Orm.ModuloFilme;
 
 public class RepositorioFilmeEmOrm : IRepositorioFilme
 {
-    private ControleDeCinemaDbContext dbContext;
+	private ControleDeCinemaDbContext dbContext;
 
-    public RepositorioFilmeEmOrm(ControleDeCinemaDbContext dbContext)
-    {
-        this.dbContext = dbContext;
-    }
+	public RepositorioFilmeEmOrm(ControleDeCinemaDbContext dbContext)
+	{
+		this.dbContext = dbContext;
+	}
 
-    public void Inserir(Filme registro)
-    {
-        dbContext.Filmes.Add(registro);
+	public void Inserir(Filme registro)
+	{
+		dbContext.Filmes.Add(registro);
 
-        dbContext.SaveChanges();
-    }
+		dbContext.SaveChanges();
+	}
 
-    public bool Editar(Filme registroOriginal, Filme registroAtualizado)
-    {
-        if (registroOriginal == null || registroAtualizado == null)
-            return false;
+	public bool Editar(Filme registroOriginal, Filme registroAtualizado)
+	{
+		if (registroOriginal == null || registroAtualizado == null)
+			return false;
 
-        registroOriginal.AtualizarInformacoes(registroAtualizado);
+		registroOriginal.AtualizarInformacoes(registroAtualizado);
 
-        dbContext.Filmes.Update(registroOriginal);
+		dbContext.Filmes.Update(registroOriginal);
 
-        dbContext.SaveChanges();
+		dbContext.SaveChanges();
 
-        return true;
-    }
+		return true;
+	}
 
-    public bool Excluir(Filme registro)
-    {
-        if (registro == null)
-            return false;
+	public bool Excluir(Filme registro)
+	{
+		if (registro == null)
+			return false;
 
-        dbContext.Filmes.Remove(registro);
+		dbContext.Filmes.Remove(registro);
 
-        dbContext.SaveChanges();
+		dbContext.SaveChanges();
 
-        return true;
-    }
+		return true;
+	}
 
-    public Filme SelecionarPorId(int id)
-    {
-        return dbContext.Filmes.Find(id)!;
-    }
+	public Filme SelecionarPorId(int id)
+	{
+		return dbContext.Filmes.Include(f => f.Sessoes).FirstOrDefault(f => f.Id == id)!;
+	}
 
-    public List<Filme> SelecionarTodos()
-    {
-        return dbContext.Filmes.ToList();
-    }
+	public List<Filme> SelecionarTodos()
+	{
+		return dbContext.Filmes.Include(f => f.Sessoes).ToList();
+	}
 }
