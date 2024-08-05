@@ -56,9 +56,11 @@ Qualidade
 ● Deve-se criar a documentação do projeto, prototipos, diagramas e README
 
 **Persistência das informações**
+
 ● Os dados devem ser salvos e recuperados em banco de dados utilizando ORM.
 
 **Arquitetural**
+
 ● Deve-se trabalhar utilizando o modelo de camadas
 
 
