@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ControleDeCinema.Dominio.ModuloFilme.Filme">
+    <Position X="0.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAEAEAAAAIAAAAAQQAAAAAAAAAgABA=</HashCode>
+      <FileName>ModuloFilme\Filme.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Sessoes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ControleDeCinema.Dominio.ModuloSessao.Sessao">
+    <Position X="4.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAMAAAAAAAAAAAAIAAAAAAgAQAAAAAAAAAgBAA=</HashCode>
+      <FileName>ModuloSessao\Sessao.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Ingressos" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ControleDeCinema.Dominio.ModuloSala.Sala">
+    <Position X="7.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAIAAAAAAAAEAAAAABAAAAAAAQAAAAAAAAAhAAA=</HashCode>
+      <FileName>ModuloSala\Sala.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Sessoes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="ControleDeCinema.Dominio.ModuloFuncionario.Funcionario">
+    <Position X="11.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAACAAAQAAAAAQAAEgAAA=</HashCode>
+      <FileName>ModuloFuncionario\Funcionario.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="ControleDeCinema.Dominio.ModuloSessao.ModuloIngresso.Ingresso">
+    <Position X="6" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAQAAAAAAAAAAAAEAAAAAUAAAAAAAAAgAAQ=</HashCode>
+      <FileName>ModuloSessao\ModuloIngresso\Ingresso.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Funcionario" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
