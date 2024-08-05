@@ -40,7 +40,7 @@ O sistema deve apresentar os detalhes das sessões, mostrando as poltronas dispo
 
 ## Requisitos Não Funcionais:
 
-Ambiente
+**Ambiente**
 
 ● A aplicação poderá ser acessada a partir de um navegador de internet (browser)
 Persistência das informações
